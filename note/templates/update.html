@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <title>Todo Note</title>
+{% endblock head %}
+
+{% block body %}
+    <div class="content">
+        <h1>Update Task</h1>
+
+        <!-- try not action
+        action attribut is to send us to a specific route  -->
+        <form action="/update/{{ task.id }}" method="POST">
+            <input type="text" value="{{ task.content}}" name="content" id="content">
+            <input type="submit" value="update Task">
+        </form>
+		<br/>
+        <a href="/">back</a>
+
+    </div>
+{% endblock body %}

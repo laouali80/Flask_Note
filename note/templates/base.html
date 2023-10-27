@@ -1,0 +1,22 @@
+<!-- (! + tab) to have an html simple page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+   <!--  this is for a variable or string format that we want to pug.
+    and the "url_for" function allows us to look for the path of a file without having to type the whole path -->
+    <link rel="stylesheet"  href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- 'static' is the folder name and 
+        " filename='css/stye.css' " is the path to which we will find the css file -->
+    {% block head %}
+    {% endblock head %}
+</head>
+<body>
+    <!-- this is for if statement, for loop -->
+    {% block body %}
+    {% endblock body %}
+</body>
+</html>

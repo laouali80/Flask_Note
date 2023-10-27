@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <title>Todo Note</title>
+{% endblock head %}
+
+{% block body %}
+    <div class="content">
+        <h1 style="text-align: center;">Task Master</h1>
+        <!-- '|' a filter list 
+        if the length of tasks < 1 -->
+        {% if tasks|length == 0 %}
+            <h4 style="text-align: center;"> There are no tasks. Create one below!</h4>
+        {% else %}
+        <table>
+		
+            <tr>
+                <th>Task</th>
+                <th>Added</th>
+                <th>Actions</th>
+            </tr>
+            {% for task in tasks %}
+
+                <tr>
+                    <td> {{ task.content }} </td>
+                    <td> {{ task.date_created.date() }} </td>
+                    <td>
+                        <!-- when click to delete it will send to delete function the task.id -->
+                        <a href="/delete/{{ task.id }}">Delete</a>
+                        <br>
+                        <!-- when click to update it will send to update function the task.id -->
+                        <a href="/update/{{ task.id }}">Update</a>
+                    </td>
+                </tr>
+
+            {% endfor %}
+        </table>
+
+        {% endif %}
+		<br />
+        <form action="/" method="POST">
+            <input type="text" name="content" id="content">
+            <input type="submit" value="Add Task">
+        </form>
+
+    </div>
+{% endblock body %}
